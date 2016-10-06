@@ -187,9 +187,7 @@ public class BookService {
 		}catch  (SQLException e) {
 	        e.printStackTrace();
 		}
-		
 		return flag2;
-		
 	}
 
 
