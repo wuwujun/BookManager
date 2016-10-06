@@ -66,7 +66,6 @@ public class BookService {
 	
 	public List<Author> getAuthorDetails(String search_bookname) {
 		List<Author> authorDetails = new ArrayList<>();
-		//String bookname = new String(search_bookname.getBytes("ISO-8859-1"), "UTF-8");
 		DB db = new DB();
 		Connection conn = db.getConn();
 		String sql = "SELECT author.* FROM book LEFT JOIN author ON book.AuthorID = author.AuthorID WHERE book.Title = '" + search_bookname + "'";
@@ -134,13 +133,6 @@ public class BookService {
 		
 		boolean flag1 = true;
 		boolean flag2 = true;
-		
-		/*System.out.println("书名  " + title);
-		System.out.println("出版社 " + publisher);
-		System.out.println("作者名字  " + name);
-		System.out.println("国家  " + country);
-		System.out.println("作者 " + String.valueOf(flag1));
-		System.out.println("图书 " + String.valueOf(flag2));*/
 		
 		try {
 			pstmt3 = (PreparedStatement) conn.prepareStatement(sql3);

@@ -55,7 +55,6 @@
 		</div>
 	</div>
 
-
 	<div id="about-us-sction">
 		<div class="container">
 			<div class="row">
