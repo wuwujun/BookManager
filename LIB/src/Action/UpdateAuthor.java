@@ -54,10 +54,14 @@ public class UpdateAuthor implements Action {
 		return title;
 	}
 
-	public void setTitle(String title) throws UnsupportedEncodingException {
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	/*public void setTitle(String title) throws UnsupportedEncodingException {
 		byte b[] =title.getBytes("ISO-8859-1");
 		this.title = new String(b, "UTF-8");
-	}
+	}*/
 
 
 }

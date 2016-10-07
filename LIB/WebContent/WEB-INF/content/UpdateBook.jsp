@@ -61,29 +61,31 @@
 				<div class="updatebook_table">
 					<form action="UpdateBookAction" method="get" class="form-horizontal" role="form">
 						<% String authorid1 = request.getParameter("author_id"); %>
-						<% String publisher = new String(request.getParameter("publisher").getBytes("ISO-8859-1"), "UTF-8"); %>
+						<% String publisher = request.getParameter("publisher"); %>
+						<!-- % String publisher = new String(request.getParameter("publisher").getBytes("ISO-8859-1"), "UTF-8"); % -->
 						<% String publishdate = request.getParameter("publish_date"); %>
 						<% String price = request.getParameter("price"); %>
-						<% String title = new String(request.getParameter("title").getBytes("ISO-8859-1"), "UTF-8"); %>
+						<% String title = request.getParameter("title"); %>
+						<!-- % String title = new String(request.getParameter("title").getBytes("ISO-8859-1"), "UTF-8"); %-->
 						
 						<div class="form-group">
 							<label class="col-sm-5 control-label"><font color="#424242">价格</font></label>
 							<div class="col-sm-3">
-								<input type="text" class="form-control" name="book.price" value=<%=price%> placeholder=<%=price%> required="required" autofocus>  
+								<input type="text" class="form-control" name="book.price" value="<%=price%>" placeholder=<%=price%> required="required" autofocus>  
 							</div>
 						</div>
 						
 						<div class="form-group">
 							<label class="col-sm-5 control-label"><font color="#424242">出版社</font></label>
 							<div class="col-sm-3">
-								<input type="text" class="form-control" name="book.publisher" value=<%=publisher%> placeholder=<%=publisher%> required="required"> 
+								<input type="text" class="form-control" name="book.publisher" value="<%=publisher%>" placeholder=<%=publisher%> required="required"> 
 							</div>
 						</div>
 						
 						<div class="form-group">
 							<label class="col-sm-5 control-label"><font color="#424242">出版日期</font></label>
 							<div class="col-sm-3">
-								<input type="text" class="form-control" name="book.publish_date" value=<%=publishdate%> placeholder=<%=publishdate%> required="required">   
+								<input type="text" class="form-control" name="book.publish_date" value="<%=publishdate%>" placeholder=<%=publishdate%> required="required">   
 							</div>
 						</div>
 						
@@ -93,8 +95,8 @@
 							</div>
 						</div>
 						
-						<input type="hidden" name="book.author_id" value=<%=authorid1%>>
-						<input type="hidden" name="title" value=<%=title%>> 
+						<input type="hidden" name="book.author_id" value="<%=authorid1%>">
+						<input type="hidden" name="title" value="<%=title%>"> 
 						
 					</form>
 				</div>

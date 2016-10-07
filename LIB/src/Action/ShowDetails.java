@@ -38,15 +38,19 @@ public class ShowDetails implements Action {
 		return search_bookname;
 	}
 
-	public void setSearch_bookname(String search_bookname) throws UnsupportedEncodingException {
+	/*public void setSearch_bookname(String search_bookname) throws UnsupportedEncodingException {
 		this.search_bookname = new String(search_bookname.getBytes("ISO-8859-1"),"UTF-8");
-	}
+	}*/
 
 
 	public List<Author> getAuthorDetails() {
 		return authorDetails;
 	}
 
+
+	public void setSearch_bookname(String search_bookname) {
+		this.search_bookname = search_bookname;
+	}
 
 	public void setAuthorDetails(List<Author> authorDetails) {
 		this.authorDetails = authorDetails;

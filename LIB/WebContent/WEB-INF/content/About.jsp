@@ -61,10 +61,10 @@
 				<div class="col-md-6 without-padding">
 					<div class="about-us-content">
 						<h3>About</h3>
-						<span>舒千倩 2016/10/02</span>
+						<span>舒千倩 2016/10/07</span>
 						<div class="divider"></div>
 						<p>实现了三个基本功能（search，plus，delete）和两个选做功能（add，update），页面设计参考了Koncept这个网站，缩放页面的时候还是会出现一些问题，目前只测试了360和Edge两个浏览器，
-						然后也没有处理书籍数量巨大的分页问题</p>
+						没有处理书籍数量巨大的分页问题</p>
 					</div>
 					<!-- end about-me-content -->
 				</div>

@@ -40,9 +40,13 @@ public class ShowBookTitle implements Action {
 		return name;
 	}
 
-
-	public void setName(String name) throws UnsupportedEncodingException {
-		this.name = new String(name.getBytes("ISO-8859-1"),"UTF-8");
+	public void setName(String name) {
+		this.name = name;
 	}
+
+
+	/*public void setName(String name) throws UnsupportedEncodingException {
+		this.name = new String(name.getBytes("ISO-8859-1"),"UTF-8");
+	}*/
 
 }

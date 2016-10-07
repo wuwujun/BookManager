@@ -78,7 +78,7 @@ function msg(){
 									<td><strong><s:property value="price"/></strong></td>
 									<td>
 										<a href="DeleteAction?isbn=${isbn}"><input type="button" value="删除" onclick="return msg()"/></a>
-									
+				
 										<a href="UpdateBook?author_id=${author_id}&publisher=${publisher}&publish_date=${publish_date}&price=${price}&title=${title}"><input type="button" value="更新"/></a>
 									</td>
 								</tr>

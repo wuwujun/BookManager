@@ -20,7 +20,7 @@
         </action>
         
         <action name="DeleteAction" class="Action.DeleteBook">
-        	<result name="success">/WEB-INF/content/SearchResult.jsp</result>
+        	<result name="success">/WEB-INF/content/Search.jsp</result>
         </action>
         
         <action name="AddAction" class="Action.AddBook">

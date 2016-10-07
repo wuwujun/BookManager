@@ -19,7 +19,7 @@ public class BookService {
 		List<Book> bookTitle = new ArrayList<>();
 		DB db = new DB();
 		Connection conn = db.getConn();
-		String sql = "SELECT book.* FROM author LEFT JOIN book ON author.AuthorID = book.AuthorID WHERE author.Name = '" + name + "'";
+		String sql = "SELECT `book`.* FROM `author` LEFT JOIN `book` ON `author`.`AuthorID` = `book`.`AuthorID` WHERE `author`.`Name` = '" + name + "'";
 		PreparedStatement pstmt;
 		//System.out.println("titlesql" + sql);
 		
@@ -44,7 +44,7 @@ public class BookService {
 		List<Book> bookDetails = new ArrayList<>();
 		DB db = new DB();
 		Connection conn = db.getConn();
-		String sql = "SELECT * FROM book WHERE book.Title = '" + search_bookname + "'";
+		String sql = "SELECT * FROM `book` WHERE `book`.`Title` = '" + search_bookname + "'";
 		PreparedStatement pstmt;
 		System.out.println("here " + sql);
 		
@@ -68,7 +68,7 @@ public class BookService {
 		List<Author> authorDetails = new ArrayList<>();
 		DB db = new DB();
 		Connection conn = db.getConn();
-		String sql = "SELECT author.* FROM book LEFT JOIN author ON book.AuthorID = author.AuthorID WHERE book.Title = '" + search_bookname + "'";
+		String sql = "SELECT `author`.* FROM `book` LEFT JOIN `author` ON `book`.`AuthorID` = `author`.`AuthorID` WHERE `book`.`Title` = '" + search_bookname + "'";
 		PreparedStatement pstmt;
 		System.out.println("here " + sql);
 		
@@ -92,7 +92,7 @@ public class BookService {
 		int i = 0;
 		DB db = new DB();
 		Connection conn = db.getConn();
-		String sql = "DELETE FROM book WHERE book.ISBN = '" + isbn + "'";
+		String sql = "DELETE FROM `book` WHERE `book`.`ISBN` = '" + isbn + "'";
 		PreparedStatement pstmt;
 		System.out.println("here " + sql);
 		
@@ -111,19 +111,19 @@ public class BookService {
 	public boolean addBook(Book book, Author author) throws UnsupportedEncodingException {
 		int i = 0;
 		
-		String title = new String(book.getTitle().getBytes("ISO-8859-1"), "UTF-8");
-		String publisher = new String(book.getPublisher().getBytes("ISO-8859-1"), "UTF-8");
-		String name = new String(author.getName().getBytes("ISO-8859-1"), "UTF-8");
-		String country = new String(author.getCountry().getBytes("ISO-8859-1"), "UTF-8");
+		//String title = new String(book.getTitle().getBytes("ISO-8859-1"), "UTF-8");
+		//String publisher = new String(book.getPublisher().getBytes("ISO-8859-1"), "UTF-8");
+		//String name = new String(author.getName().getBytes("ISO-8859-1"), "UTF-8");
+		//String country = new String(author.getCountry().getBytes("ISO-8859-1"), "UTF-8");
 		
 		DB db = new DB();
 		Connection conn = db.getConn();
-		String sql1 = "SELECT * FROM book";
-		String sql2 = "INSERT INTO book (ISBN, Title, AuthorID, Publisher, PublishDate, Price) VALUES('"+ book.getIsbn() +
-				"', '"+ title + "', '" + book.getAuthor_id() + "', '" + publisher + "', '" + book.getPublish_date() + "', '" + book.getPrice() + "')";
-		String sql3 = "SELECT * FROM author";
-		String sql4 = "INSERT INTO author (AuthorID, Name, Age, Country) VALUES('" + book.getAuthor_id() + "', '" + name + 
-				"', '" + author.getAge() + "', '" + country +"')";
+		String sql1 = "SELECT * FROM `book`";
+		String sql2 = "INSERT INTO `book` (`ISBN`, `Title`, `AuthorID`, `Publisher`, `PublishDate`, `Price`) VALUES('"+ book.getIsbn() +
+				"', '"+ book.getTitle() + "', '" + book.getAuthor_id() + "', '" + book.getPublisher() + "', '" + book.getPublish_date() + "', '" + book.getPrice() + "')";
+		String sql3 = "SELECT * FROM `author`";
+		String sql4 = "INSERT INTO `author` (`AuthorID`, `Name`, `Age`, `Country`) VALUES('" + book.getAuthor_id() + "', '" + author.getName() + 
+				"', '" + author.getAge() + "', '" + author.getCountry() +"')";
 		
 	
 		PreparedStatement pstmt1;
@@ -201,11 +201,11 @@ public class BookService {
 		DB db = new DB();
 		Connection conn = db.getConn();
 		
-		String publisher = new String(book.getPublisher().getBytes("ISO-8859-1"), "UTF-8");
+		//String publisher = new String(book.getPublisher().getBytes("ISO-8859-1"), "UTF-8");
 		
-		String sql1 = "UPDATE book SET PublishDate = '" + book.getPublish_date() + "', Price = '" + book.getPrice()
-			+ "', Publisher = '" + publisher + "' WHERE AuthorID = '" + book.getAuthor_id() + "'";
-		String sql2 = "SELECT * FROM book WHERE AuthorID = '" + book.getAuthor_id() + "'";
+		String sql1 = "UPDATE `book` SET `PublishDate` = '" + book.getPublish_date() + "', `Price` = '" + book.getPrice()
+			+ "', `Publisher` = '" + book.getPublisher() + "' WHERE `AuthorID` = '" + book.getAuthor_id() + "'";
+		String sql2 = "SELECT * FROM `book` WHERE `AuthorID` = '" + book.getAuthor_id() + "'";
 		
 		PreparedStatement pstmt1, pstmt2;
 		System.out.println("here " + sql1);
@@ -242,11 +242,11 @@ public class BookService {
 		DB db = new DB();
 		Connection conn = db.getConn();
 		
-		String name = new String(author.getName().getBytes("ISO-8859-1"), "UTF-8");
-		String country = new String(author.getCountry().getBytes("ISO-8859-1"), "UTF-8");
+		//String name = new String(author.getName().getBytes("ISO-8859-1"), "UTF-8");
+		//String country = new String(author.getCountry().getBytes("ISO-8859-1"), "UTF-8");
 		
-		String sql1 = "UPDATE author SET Name = '" + name + "', Country = '" + country + "', Age = '" + author.getAge() + "' WHERE AuthorID = '" + author.getAuthor_id() + "'";
-		String sql2 = "SELECT * FROM author WHERE AuthorID = '" + author.getAuthor_id() + "'";
+		String sql1 = "UPDATE `author` SET `Name` = '" + author.getName() + "', `Country` = '" + author.getCountry() + "', `Age` = '" + author.getAge() + "' WHERE `AuthorID` = '" + author.getAuthor_id() + "'";
+		String sql2 = "SELECT * FROM `author` WHERE `AuthorID` = '" + author.getAuthor_id() + "'";
 		
 		PreparedStatement pstmt1, pstmt2;
 		System.out.println("here " + sql1);

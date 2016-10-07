@@ -62,31 +62,35 @@
 				<br>
 				<br>
 				<div class="updateauthor_table">
+					
 					<form action="UpdateAuthorAction" method="get" class="form-horizontal" role="form">
 						<% String authorid = request.getParameter("author_id"); %>
-						<% String country = new String(request.getParameter("country").getBytes("ISO-8859-1"), "UTF-8"); %>
-						<% String name = new String(request.getParameter("name").getBytes("ISO-8859-1"), "UTF-8"); %>
+						<!-- % String country = new String(request.getParameter("country").getBytes("ISO-8859-1"), "UTF-8"); %-->
+						<% String country = request.getParameter("country"); %>
+						<!-- % String name = new String(request.getParameter("name").getBytes("ISO-8859-1"), "UTF-8"); % -->
+						<% String name = request.getParameter("name"); %>
 						<% String age = request.getParameter("age"); %>
-						<% String title = new String(request.getParameter("title").getBytes("ISO-8859-1"), "UTF-8"); %>
+						<!--  % String title = new String(request.getParameter("title").getBytes("ISO-8859-1"), "UTF-8"); %-->
+						<%String title = request.getParameter("title");%>
 						
 						<div class="form-group">
 							<label class="col-sm-5 control-label"><font color="#424242">姓名</font></label>
 							<div class="col-sm-3">
-								<input type="text" class="form-control" name="author.name" value=<%=name%> placeholder=<%=name%> required="required" autofocus>
+								<input type="text" class="form-control" name="author.name" value="<%=name%>" placeholder=<%=name%> required="required" autofocus>
 							</div>
 						</div>
 						
 						<div class="form-group">
 							<label class="col-sm-5 control-label"><font color="#424242">年龄</font></label>
 							<div class="col-sm-3">
-								<input type="text" class="form-control" name="author.age" value=<%=age%> placeholder=<%=age%> required="required"> 
+								<input type="text" class="form-control" name="author.age" value="<%=age%>" placeholder=<%=age%> required="required"> 
 							</div>
 						</div>
 						
 						<div class="form-group">
 							<label class="col-sm-5 control-label"><font color="#424242">国家</font></label>
 							<div class="col-sm-3">
-								<input type="text" class="form-control" name="author.country" value=<%=country%> placeholder=<%=country%> required="required"> 
+								<input type="text" class="form-control" name="author.country" value="<%=country%>" placeholder=<%=country%> required="required"> 
 							</div>
 						</div>
 						
@@ -95,8 +99,8 @@
 								<button type="submit" class="btn-dark">提交</button>
 							</div>
 						</div>
-						<input type="hidden" name="author.author_id" value=<%=authorid%>> 
-						<input type="hidden" name="title" value=<%=title%>> 
+						<input type="hidden" name="author.author_id" value="<%=authorid%>"> 
+						<input type="hidden" name="title" value="<%=title%>"> 
 					</form>
 				</div>
 			</div>
